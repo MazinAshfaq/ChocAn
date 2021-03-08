@@ -4,6 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+        int cookie = 0;
+=======
 	System.out.println("Hello");
 
     }
