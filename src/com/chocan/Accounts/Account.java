@@ -11,23 +11,14 @@ public class Account {
     private String city; // 14 chars
     private String state; // 2 Letters
     private int zip; // 5 digits
-    /*
-    Need Product Service (Probably a list)
-    Ideas:
-    private List<Product> product;
-    private Product product;
-     */
-    // Temporary Product Service from above
-    private List<Product> productServices;
 
-    public Account(String name, int number, String address, String city, String state, int zip, List<Product> productServices) {
+    public Account(String name, int number, String address, String city, String state, int zip) {
         this.name = name;
         this.number = number;
         this.address = address;
         this.city = city;
         this.state = state;
         this.zip = zip;
-        this.productServices = productServices;
     }
 
     public String getName() {
@@ -78,14 +69,6 @@ public class Account {
         this.zip = zip;
     }
 
-    public List<Product> getProductServices() {
-        return productServices;
-    }
-
-    public void setProductServices(List<Product> productServices) {
-        this.productServices = productServices;
-    }
-
     @Override
     public String toString() {
         return "Account{" +
@@ -95,7 +78,6 @@ public class Account {
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zip=" + zip +
-                ", productServices=" + productServices +
                 '}';
     }
 }
