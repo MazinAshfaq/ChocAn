@@ -14,4 +14,33 @@ public class Provider extends Account{
         this.consultations = consultations;
         this.weekFee = weekFee;
     }
+
+    // Test for Logging
+    public Provider(int number){
+        super(number);
+    }
+
+    public int getConsultations() {
+        return consultations;
+    }
+
+    public void setConsultations(int consultations) {
+        this.consultations = consultations;
+    }
+
+    public int getWeekFee() {
+        return weekFee;
+    }
+
+    public void setWeekFee(int weekFee) {
+        this.weekFee = weekFee;
+    }
+
+    @Override
+    public String toString() {
+        return "Provider{" +
+                "consultations=" + consultations +
+                ", weekFee=" + weekFee +
+                '}';
+    }
 }

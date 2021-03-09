@@ -10,4 +10,5 @@ public class Member extends Account{
         super(name, number, address, city, state, zip, productServices);
     }
 
+
 }

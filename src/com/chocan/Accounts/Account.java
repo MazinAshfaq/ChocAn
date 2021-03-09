@@ -30,6 +30,10 @@ public class Account {
         this.productServices = productServices;
     }
 
+    public Account(int number){
+        this.number = number;
+    }
+
     public String getName() {
         return name;
     }
