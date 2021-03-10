@@ -1,6 +1,7 @@
 package com.chocan.Controllers;
 
 import com.chocan.Accounts.Provider;
+import com.chocan.Accounts.Member;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,6 +31,13 @@ public class AccountController {
         else {
             return null;
         }
+    }
+
+    public static Member validation(int id) throws FileNotFoundException{
+        Scanner fileScanner = new Scanner(new File("src/com/chocan/TextFiles/Memberinfo.csv"));
+
+
+        return null;
     }
 
     public static void main(String [] args) throws FileNotFoundException {

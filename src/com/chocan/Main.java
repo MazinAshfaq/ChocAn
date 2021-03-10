@@ -21,7 +21,11 @@ public class Main {
             System.out.println("Welcome Back " + provider.getName());
         }
 
+
         /* Call Menu */
+
+        //Enter Member ID
+        System.out.println("Please Enter Member ID");
 
 
 
