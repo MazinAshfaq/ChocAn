@@ -15,4 +15,19 @@ public class Provider extends Account{
         this.weekFee = weekFee;
     }
 
+    public int getWeekFee() {
+        return weekFee;
+    }
+
+    public void setWeekFee(int weekFee) {
+        this.weekFee = weekFee;
+    }
+
+    public int getConsultations() {
+        return consultations;
+    }
+
+    public void setConsultations(int consultations) {
+        this.consultations = consultations;
+    }
 }
