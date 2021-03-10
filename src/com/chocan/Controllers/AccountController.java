@@ -33,12 +33,63 @@ public class AccountController {
         }
     }
 
-    public static Member validation(int id) throws FileNotFoundException{
+    public static int validation() throws FileNotFoundException{
+        Scanner scanner = new Scanner(System.in);
+        int id = 0;
+        System.out.println("Please Enter Member ID!");
+        id = scanner.nextInt();
+
         Scanner fileScanner = new Scanner(new File("src/com/chocan/TextFiles/Memberinfo.csv"));
+        String [] ID = null;
+        while(fileScanner.hasNext()) {
+            String line = fileScanner.nextLine();
+            if (line.contains(String.valueOf(id))) {
+                ID = line.split(",");
+                break;
+            }
+        }
 
+        if(ID != null) {
+            if (Integer.parseInt(ID[0]) == id) {
+                if(Integer.parseInt(ID[6]) != 0) {
+                    System.out.println("Member Has Outstanding Fees!");
+                    System.out.println("Would you like to pay now? 1 or 0");
+                    int choice = 0;
+                    choice = scanner.nextInt();
+                    if(choice == 1){
+                         return payFee(id);
+                    }
+                    else{
+                        System.out.println("Cannot Proceed if Fees are Not Paid!");
+                        System.out.println("Have a Great Day!");
+                        return 0;
+                    }
+                }
+                else {
+                    System.out.println("Valid Member");
+                    return 1;
+                }
+            }
+            else{
+                System.out.println("Could Not Find Member ID!");
+                System.out.println("Please Enter Correct ID:");
+                id = scanner.nextInt();
+            }
 
-        return null;
+        }
+        else {
+            System.out.println("");
+            return 0;
+        }
+        return 0;
     }
+
+    public static int payFee(int id){
+        return 0;
+    }
+
+
+
 
     public static void main(String [] args) throws FileNotFoundException {
         Provider test = populateProvider(100);

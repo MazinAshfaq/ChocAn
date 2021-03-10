@@ -1,5 +1,6 @@
 package com.chocan;
 
+import com.chocan.Accounts.Account;
 import com.chocan.Controllers.AccountController;
 import com.chocan.Accounts.Provider;
 import com.chocan.Auth.Logger;
@@ -57,6 +58,7 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Selection: " + choice);
+                    AccountController.validation();
                     break;
                 case 3:
                     // Add, Delete, Update Member Data
