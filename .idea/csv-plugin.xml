@@ -31,6 +31,27 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\com\chocan\TextFiles\memberinfo.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\com\chocan\TextFiles\providerinfo.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\com\chocan\TextFiles\servicelist.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

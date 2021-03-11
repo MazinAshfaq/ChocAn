@@ -1,7 +1,7 @@
 package com.chocan.Controllers;
 
 import com.chocan.Accounts.Provider;
-import com.chocan.Accounts.Member;
+//import com.chocan.Accounts.Member;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,9 +33,33 @@ public class AccountController {
         }
     }
 
+    public static void payFee(int id) throws FileNotFoundException{
+
+        Scanner fileScanner = new Scanner(new File("src/com/chocan/TextFiles/Memberinfo.csv"));
+        System.out.println("INSDIE PAY FEE");
+        String [] ID = null;
+        while(fileScanner.hasNext()) {
+            String line = fileScanner.nextLine();
+            ID = line.split(",");
+
+            if(ID[0].equals(String.valueOf(id))) {
+                ID[6] = String.valueOf(0);//Replace Fees field with 0
+
+                if (ID.length > 0) {
+                    StringBuilder sb = new StringBuilder();//Make a new string
+                    for (String s : ID) {
+                        sb.append(s).append(",");//Convert ID to
+                    }
+                }
+            }
+        }
+        return;
+    }
+
     public static void validation() throws FileNotFoundException{
         Scanner scanner = new Scanner(System.in);
-        int id = 0;
+        int id;
+        int c;
         id = scanner.nextInt();
 
         Scanner fileScanner = new Scanner(new File("src/com/chocan/TextFiles/Memberinfo.csv"));
@@ -50,14 +74,11 @@ public class AccountController {
          }
 
         if(ID2 != null) {
-                if(Integer.parseInt(ID[6]) != 0) {
+                if(Integer.parseInt(ID2[6]) != 0) {
                     System.out.println("Member Has Outstanding Fees!");
                     System.out.println("Would you like to pay now? 1 or 0");
-                    int choice = 0;
-                    choice = scanner.nextInt();
-                    if(choice == 1){
-                         payFee(id);
-                    }
+                    c = scanner.nextInt();
+                    if(c == 1) payFee(id);
                     else{
                         System.out.println("Cannot Proceed if Fees are Not Paid!");
                         System.out.println("Have a Great Day!");
@@ -76,22 +97,6 @@ public class AccountController {
             validation();
         }
     }
-
-    public static void payFee(int id) throws FileNotFoundException{
-        Scanner fileScanner = new Scanner(new File("src/com/chocan/TextFiles/Memberinfo.csv"));
-        String [] ID = null;
-        while(fileScanner.hasNext()) {
-            String line = fileScanner.nextLine();
-            ID = line.split(",");
-            if(ID[0].equals(String.valueOf(id))) {
-                ID[6] = String.valueOf(0);
-                //line = ID;
-            }
-        }
-        return;
-    }
-
-
 
 
     public static void main(String [] args) throws FileNotFoundException {
