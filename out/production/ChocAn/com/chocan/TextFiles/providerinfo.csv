@@ -1,0 +1,7 @@
+﻿number,name,address,city,state,zip,consultations #,week fees
+100000000,Eric,12345 SW Cookie St.,Beaverton,OR,97006,0,0
+110000000,Mazin,12345 NW Dough St,Portland,OR,97229,1,25
+120000000,Cesar,12345 SW Cream St.,Beaverton,OR,97006,2,40
+130000000,Arafat,12345 SW Arafat St.,Beaverton,OR,97006,3,105
+140000000,Andy,12345 SW Andy St.,Portland,OR,97229,4,275
+150000000,Tommy,12345 NW Tom St,Portland,OR,97229,5,120
