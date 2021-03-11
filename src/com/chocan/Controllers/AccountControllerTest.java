@@ -37,10 +37,17 @@ class AccountControllerTest {
         }
         catch(Exception e){
             actualmessage = e.getMessage();
+        }
+
+        if(actualmessage.contains("(The system cannot find the file specified)")){
+            //System.out.println("true");
             assertTrue(actualmessage.contains("(The system cannot find the file specified)"));
         }
-        //Should fail if fake file not passed in
-        assertTrue(actualmessage.contains("(The system cannot find the file specified)"));
+        else{
+            //System.out.println("false");
+            assertFalse(actualmessage.contains("(The system cannot find the file specified)"));
+        }
+
 
     }
     //derived from original. Changes file to be read as a fake file
