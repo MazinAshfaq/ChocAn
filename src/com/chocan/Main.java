@@ -5,6 +5,7 @@ import com.chocan.Accounts.Provider;
 import com.chocan.Auth.Logger;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 import com.chocan.Controllers.AccountController;
@@ -41,7 +42,7 @@ public class Main {
     }
 
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
 	    /* Login */
         int providerNum = Logger.login();
         /* Populate Current Logged In Provider */
@@ -74,7 +75,18 @@ public class Main {
 
                     break;
                 case 4:
+                    //View a report
                     System.out.println("Selection: " + choice);
+                    int pID = provider.getNumber();
+                    int c = Reports.view(pID);
+                    if(c == 1) {
+                        //provider report
+                        Reports.viewProvider(pID);
+                    }
+                    else {
+                        String provName = provider.getName();
+                        Reports.viewMember(provName);
+                    }
                     break;
                 case 5:
                     // Add, Delete, Update Member Data
