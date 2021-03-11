@@ -58,6 +58,7 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Selection: " + choice);
+                    System.out.println("Please Enter Member ID!");
                     AccountController.validation();
                     break;
                 case 3:
