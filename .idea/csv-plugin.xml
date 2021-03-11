@@ -38,6 +38,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\src\com\chocan\TextFiles\memberinfotest.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\src\com\chocan\TextFiles\providerinfo.csv">
           <value>
             <Attribute>
