@@ -6,20 +6,14 @@ import com.chocan.Accounts.Provider;
 import com.chocan.Auth.Logger;
 
 import java.io.FileNotFoundException;
-<<<<<<< HEAD
 import java.util.Scanner;
-=======
 import java.io.IOException;
 import java.util.Scanner;
-
 import com.chocan.Controllers.AccountController;
 import com.chocan.Accounts.Provider;
 import com.chocan.Auth.Logger;
-
 import com.chocan.Reports.Reports;
-
 import java.io.FileNotFoundException;
->>>>>>> origin/ReportFR
 
 public class Main {
 
