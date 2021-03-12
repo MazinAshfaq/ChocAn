@@ -7,6 +7,7 @@ import com.chocan.Controllers.MemberController;
 import com.chocan.Reports.Reports;
 
 import java.io.FileNotFoundException;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -24,6 +25,9 @@ public class Main {
         }
         scanner.close();
     }
+
+
+
 
     public static int menu(){
         int choice = 0;
@@ -61,8 +65,6 @@ public class Main {
             System.out.println("Welcome Back " + provider.getName());
         }
 
-        /* Call Menu */
-
         int choice = 999;
         do {
             choice = menu();
@@ -80,6 +82,8 @@ public class Main {
                     Reports.menu(id);
                     break;
                 case 4:
+                    //View a report
+
                     System.out.println("Selection: " + choice);
                     int pID = provider.getNumber();
                     int c = Reports.view(pID);
@@ -103,7 +107,5 @@ public class Main {
             }
 
         }while(choice != 6);
-
-
     }
 }
