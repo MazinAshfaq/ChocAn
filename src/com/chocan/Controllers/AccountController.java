@@ -2,7 +2,7 @@ package com.chocan.Controllers;
 
 import com.chocan.Accounts.Member;
 import com.chocan.Accounts.Provider;
-//import com.chocan.Accounts.Member;
+import com.chocan.Accounts.Member;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -58,11 +58,12 @@ public class AccountController<Static> {
         String s = "";
         for (List<String> list : file) {
             if (list.get(0).equals(String.valueOf(serviceC))) {
-                return list.get(0);
+                return list.get(1);
             }
         }
         return s;
     }
+
     private static String getSFee(int serviceC,List<List<String>>file){
         String s = "";
         for (List<String> list : file) {
@@ -142,13 +143,13 @@ public class AccountController<Static> {
 
         Date curdate = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        formatter.format(curdate);
         try {
-            writeToEndOfFile(provider.getNumber()+ member.getNumber()+provider.getName()+ member.getName()+date+curdate
-                    +String.valueOf(serviceC)+getSName(serviceC,file)+getSFee(serviceC,file)+comments);
+            writeToEndOfFile(provider.getNumber()+ ","+member.getNumber()+","+provider.getName()+ ","+member.getName()+","+date+","+curdate+","+
+                    String.valueOf(serviceC)+","+getSName(serviceC,file)+","+getSFee(serviceC,file)+","+comments);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
         return;
 

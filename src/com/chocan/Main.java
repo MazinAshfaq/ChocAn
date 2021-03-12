@@ -58,7 +58,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 	    /* Login */
-        int providerNum = 150000000;//Logger.login();
+        int providerNum = Logger.login();
         /* Populate Current Logged In Provider */
         Provider provider = AccountController.populateProvider(providerNum);
         if(provider == null) {
