@@ -31,6 +31,7 @@
             </Attribute>
           </value>
         </entry>
+<<<<<<< HEAD
         <entry key="\src\com\chocan\TextFiles\memberinfo.csv">
           <value>
             <Attribute>
@@ -56,6 +57,19 @@
           <value>
             <Attribute>
               <option name="separator" value="," />
+=======
+        <entry key="\src\com\chocan\Main.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\src\com\chocan\Reports\Reports.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+>>>>>>> origin/ReportFR
             </Attribute>
           </value>
         </entry>
