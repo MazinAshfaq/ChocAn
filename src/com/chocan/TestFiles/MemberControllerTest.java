@@ -1,17 +1,41 @@
 package com.chocan.TestFiles;
 
+import com.chocan.Accounts.Member;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import static com.chocan.Controllers.MemberController.addMember;
-import static com.chocan.Controllers.MemberController.deleteMember;
+import static com.chocan.Auth.Logger.login;
+import static com.chocan.Controllers.MemberController.*;
 import static java.lang.Integer.parseInt;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MemberControllerTest {
+
+    /*scratched, not working
+    @Test
+    void updateMemberTest() throws IOException{
+
+
+        Member member = null;
+        String input = viewMemberLast();
+        InputStream sysInBackup = System.in; // backup System.in to restore it later
+        ByteArrayInputStream in1 = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in1);
+
+        member = getMemberFromId();
+        System.setIn(sysInBackup);
+
+        input = viewMemberLast();
+        ByteArrayInputStream in2 = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in2);
+        updateMember(member, "test");
+
+    }
+    */
 
     //tests for correctly deleting member
     //adds member with random ID
@@ -99,6 +123,19 @@ class MemberControllerTest {
         }
         return "not found";
     }
+    //derived, meant to return name of last member from list
+    private static String viewMemberLastName() throws FileNotFoundException {
+        Scanner scanner = new Scanner(new FileReader("src/com/chocan/TextFiles/memberinfo.csv"));
+        String [] line;
+
+        while(scanner.hasNext()){
+            line = scanner.nextLine().split(",");
+            if(scanner.hasNext() == false){
+                return line[1];
+            }
+        }
+        return "not found";
+    }
 
     //derived, asserts true when correct id passed. if not found, return false.
     private static void viewMember(int id) throws FileNotFoundException {
@@ -115,6 +152,79 @@ class MemberControllerTest {
         }
         if(found == false)
             assertFalse(false);
+    }
+
+    //dervied to only change name
+    public static void updateMember(Member member, String newName) throws IOException {
+        int choice = updateMemberMenu(member.getName());
+        Scanner scanner = new Scanner(System.in);
+        String toReplace = null;
+        switch(1){
+            case 1:
+                System.out.print("Enter New Name: ");
+                toReplace = scanner.nextLine();
+                break;
+            case 2:
+                System.out.print("Enter New Street Address: ");
+                toReplace = scanner.nextLine();
+                break;
+            case 3:
+                System.out.print("Enter New City: ");
+                toReplace = scanner.nextLine();
+                break;
+            case 4:
+                System.out.print("Enter New State: ");
+                toReplace = scanner.nextLine();
+                break;
+            case 5:
+                System.out.print("Enter New Zip: ");
+                toReplace = scanner.nextLine();
+                break;
+            case 6:
+                // update fess
+                toReplace = String.valueOf(0);
+                break;
+            case 7:
+                return;
+        }
+
+        // Replace line in filecontents
+        List<String[]> fileContents = readFileContents();
+        String [] toAdd = null;
+
+        for(int i = 0; i<fileContents.size(); ++i){
+            String temp = fileContents.get(i)[0];
+            if(fileContents.get(i)[0].equals(String.valueOf(member.getNumber()))){
+                toAdd = updateMember(fileContents.get(i), choice, toReplace);
+                fileContents.set(i, toAdd);
+            }
+        }
+
+        FileWriter writer = new FileWriter("src/com/chocan/TextFiles/memberinfo.csv");
+        int wordCount, lineCount = 0;
+        for(String [] line : fileContents){
+            ++lineCount;
+            wordCount = 0;
+            for(String word : line){
+                if(wordCount == line.length-1){
+                    writer.append(word);
+                    break;
+                }
+                writer.append(word);
+                writer.append(",");
+                ++wordCount;
+            }
+            if(lineCount == fileContents.size()){
+                break;
+            }
+            writer.append("\n");
+        }
+
+        writer.close();
+    }
+    private static String [] updateMember(String [] line, int choice, String toReplace){
+        line[choice] = toReplace;
+        return line;
     }
 
 }
