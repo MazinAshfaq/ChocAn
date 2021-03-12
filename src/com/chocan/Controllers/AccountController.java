@@ -43,7 +43,6 @@ public class AccountController {
 
     }
 
-
     public static Provider populateProvider(int id) throws FileNotFoundException {
         Scanner fileScanner = new Scanner(new File("src/com/chocan/TextFiles/providerinfo.csv"));
         String[] words = null;
