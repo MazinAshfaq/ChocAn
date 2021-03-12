@@ -83,8 +83,11 @@ public class Main {
                     AccountController.validation();
                     break;
                 case 3:
-                    // Add, Delete, Update Member Data
+                    // Run a report
                     System.out.println("Selection: " + choice);
+                    //get id
+                    int id = provider.getNumber();
+                    Reports.menu(id);
                     break;
                 case 4:
                     //View a report
@@ -101,7 +104,7 @@ public class Main {
                     }
                     break;
                 case 5:
-                    // Add, Delete, Update Member Data
+                    //View P Directory
                     System.out.println("Selection: " + choice);
                     viewProviderDirectory();
                     break;
