@@ -1,4 +1,4 @@
-package com.chocan.Controllers;
+package com.chocan.TestFiles;
 
 import com.chocan.Accounts.Provider;
 import com.chocan.Auth.Logger;

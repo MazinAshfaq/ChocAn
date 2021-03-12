@@ -1,4 +1,4 @@
-package com.chocan.Controllers;
+package com.chocan.TestFiles;
 
 import org.junit.jupiter.api.Test;
 

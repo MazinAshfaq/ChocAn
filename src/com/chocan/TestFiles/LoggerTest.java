@@ -1,4 +1,4 @@
-package com.chocan.Auth;
+package com.chocan.TestFiles;
 
 import org.junit.jupiter.api.Test;
 
@@ -73,8 +73,7 @@ class LoggerTest {
             actualmessage = e.getMessage();
         }
 
-
-            assertTrue(actualmessage.contains("(The system cannot find the file specified)"));
+        assertTrue(actualmessage.contains("(The system cannot find the file specified)"));
 
     }
 

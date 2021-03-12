@@ -1,5 +1,6 @@
-package com.chocan.ProductService;
+package com.chocan.TestFiles;
 
+import com.chocan.ProductService.Product;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
