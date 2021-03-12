@@ -4,6 +4,7 @@ import com.chocan.Controllers.AccountController;
 import com.chocan.Accounts.Provider;
 import com.chocan.Auth.Logger;
 import com.chocan.Controllers.MemberController;
+import com.chocan.Reports.Reports;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -74,19 +75,29 @@ public class Main {
                     System.out.println("Selection: " + choice);
                     break;
                 case 3:
-                    // Add, Delete, Update Member Data
                     System.out.println("Selection: " + choice);
+                    int id = provider.getNumber();
+                    Reports.menu(id);
                     break;
                 case 4:
                     System.out.println("Selection: " + choice);
+                    int pID = provider.getNumber();
+                    int c = Reports.view(pID);
+                    if(c == 1) {
+                        //provider report
+                        Reports.viewProvider(pID);
+                    }
+                    else {
+                        String provName = provider.getName();
+                        Reports.viewMember(provName);
+                    }
                     break;
                 case 5:
-                    // Add, Delete, Update Member Data
                     System.out.println("Selection: " + choice);
                     viewProviderDirectory();
                     break;
                 case 6:
-                    System.out.println("Selection: " + choice);
+                    System.out.println("Logging " + provider.getName() + " out. Goodbye");
                     break;
 
             }
