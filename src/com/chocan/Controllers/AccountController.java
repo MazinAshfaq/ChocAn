@@ -4,17 +4,16 @@ import com.chocan.Accounts.Member;
 import com.chocan.Accounts.Provider;
 //import com.chocan.Accounts.Member;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Date;
 
 
 /* Controls methods with accounts and accessing files */
-public class AccountController {
+public class AccountController<Static> {
 
     public static Member populateMember(int id) throws FileNotFoundException {
         Scanner fileScanner = new Scanner(new File("src/com/chocan/TextFiles/memberinfo.csv"));
@@ -40,6 +39,118 @@ public class AccountController {
         else {
             return null;
         }
+
+    }
+
+    private static void printPDirectory(int serviceC) throws FileNotFoundException {
+        Scanner fileScanner = new Scanner(new File("src/com/chocan/TextFiles/providerdirectory.csv"));
+        boolean b = false;
+        //Save file into List of Lists
+        List<List<String>> file = new ArrayList<>();
+        while (fileScanner.hasNextLine()) {
+            file.add(saveFile(fileScanner.nextLine()));
+        }
+
+
+    }
+
+    private static String getSName(int serviceC,List<List<String>>file){
+        String s = "";
+        for (List<String> list : file) {
+            if (list.get(0).equals(String.valueOf(serviceC))) {
+                return list.get(0);
+            }
+        }
+        return s;
+    }
+    private static String getSFee(int serviceC,List<List<String>>file){
+        String s = "";
+        for (List<String> list : file) {
+            if (list.get(0).equals(String.valueOf(serviceC))) {
+                return list.get(2);
+            }
+        }
+        return s;
+    }
+
+    private static void checkServiceID(int serviceC,List<List<String>>file){
+        Scanner scanner = new Scanner(System.in);
+        boolean found = false;
+
+        for (List<String> list : file) {
+            if (list.get(0).equals(String.valueOf(serviceC))) {
+                String line = String.join(" ", list);
+                System.out.print(line);
+                System.out.println("\n");
+                found = true;
+            }
+        }
+        if(found){
+            return;
+        }
+        else{
+            System.out.println("Could not find Service, try again.");
+            System.out.println("Please Enter Service Code:");
+            int NserviceC = scanner.nextInt();
+            checkServiceID(NserviceC,file);
+        }
+    }
+
+    public static void addService(Provider provider, Member member) throws FileNotFoundException {
+        Scanner scanner = new Scanner(System.in);
+        Scanner fileScanner = new Scanner(new File("src/com/chocan/TextFiles/providerdirectory.csv"));
+        boolean b = false;
+        //Save file into List of Lists
+        List<List<String>> file = new ArrayList<>();
+        while (fileScanner.hasNextLine()) {
+            file.add(saveFile(fileScanner.nextLine()));
+        }
+
+        System.out.println("Please Enter Current Date MM/DD/YYYY");
+       //Check date function maybe or if not a string catch error
+        String date = scanner.nextLine();
+        System.out.println("Please Enter Service Code:");
+        int serviceC = scanner.nextInt();
+        checkServiceID(serviceC,file);
+
+        String y = "y";
+        String n = "n";
+        String choice;
+        scanner.nextLine();
+        do {
+            System.out.println("Did you enter the correct code? (y/n)");
+            choice = scanner.nextLine();
+
+            if(choice.equals(y)){
+                break;
+            }
+            else{
+                System.out.println("Please Enter Service Code:");
+                serviceC = scanner.nextInt();
+                checkServiceID(serviceC,file);
+            }
+
+        }while((choice.equals(n)));
+
+        String comments = "";
+        System.out.println("Would you like to enter any comments about the service? (y/n)");
+        choice = scanner.nextLine();
+        if(choice.equals(y)){
+            comments = scanner.nextLine();
+        }
+
+
+        Date curdate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        try {
+            writeToEndOfFile(provider.getNumber()+ member.getNumber()+provider.getName()+ member.getName()+date+curdate
+                    +String.valueOf(serviceC)+getSName(serviceC,file)+getSFee(serviceC,file)+comments);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        return;
 
     }
 
@@ -73,6 +184,17 @@ public class AccountController {
             }
         }
         return values;
+    }
+
+    private static void writeToEndOfFile(String line) throws IOException {
+        FileWriter writer = new FileWriter("src/com/chocan/TextFiles/servicelist.csv",true);
+        BufferedWriter br = new BufferedWriter(writer);
+        br.write(line);
+        br.append("\n");
+
+        br.close();
+        writer.close();
+
     }
 
     private static void writeToFile(List<List<String>> file) throws IOException {
@@ -112,8 +234,9 @@ public class AccountController {
         return;
     }
 
-    public static void validation() throws FileNotFoundException {
+    public static void validation(Provider provider) throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
+
         int id;
         int c;
         id = scanner.nextInt();
@@ -150,15 +273,17 @@ public class AccountController {
                 }
                 else {
                     System.out.println("Valid Member");
-                    return;
+                    addService(provider,populateMember(id));
+                    return ;
                 }
             }
         else{
             System.out.println("Could Not Find Member ID!");
             System.out.println("Please Enter Correct ID:");
             id = scanner.nextInt();
-            validation();
+            validation(provider);
         }
+        return;
     }
 
     public static void main(String [] args) throws FileNotFoundException {

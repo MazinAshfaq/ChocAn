@@ -58,7 +58,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 	    /* Login */
-        int providerNum = Logger.login();
+        int providerNum = 150000000;//Logger.login();
         /* Populate Current Logged In Provider */
         Provider provider = AccountController.populateProvider(providerNum);
         if(provider == null) {
@@ -80,8 +80,9 @@ public class Main {
                 case 2:
                     System.out.println("Selection: " + choice);
                     System.out.println("Please Enter Member ID!");
-                    AccountController.validation();
+                    AccountController.validation(provider);
                     break;
+
                 case 3:
                     // Run a report
                     System.out.println("Selection: " + choice);
