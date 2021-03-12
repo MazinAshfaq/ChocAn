@@ -28,9 +28,23 @@ class AccountControllerTest {
         assertEquals(true, test != null);
     }
 
+    //pass file that does exist
+    @Test
+    void mainFileExceptionFalse() throws FileNotFoundException {
+        String actualmessage = "";
+        try {
+            Provider test = populateProvider(100);
+        }
+        catch(Exception e){
+            actualmessage = e.getMessage();
+        }
+        assertFalse(actualmessage.contains("(The system cannot find the file specified)"));
+
+    }
+
     //pass file that doesn't exist
     @Test
-    void mainFileException() throws FileNotFoundException {
+    void mainFileExceptionTrue() throws FileNotFoundException {
         String actualmessage = "";
         try {
             Provider test = populateProviderTest(100);
@@ -38,16 +52,7 @@ class AccountControllerTest {
         catch(Exception e){
             actualmessage = e.getMessage();
         }
-
-        if(actualmessage.contains("(The system cannot find the file specified)")){
-            //System.out.println("true");
-            assertTrue(actualmessage.contains("(The system cannot find the file specified)"));
-        }
-        else{
-            //System.out.println("false");
-            assertFalse(actualmessage.contains("(The system cannot find the file specified)"));
-        }
-
+        assertTrue(actualmessage.contains("(The system cannot find the file specified)"));
 
     }
     //derived from original. Changes file to be read as a fake file
