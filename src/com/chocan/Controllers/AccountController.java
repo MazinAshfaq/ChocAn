@@ -1,5 +1,6 @@
 package com.chocan.Controllers;
 
+import com.chocan.Accounts.Member;
 import com.chocan.Accounts.Provider;
 //import com.chocan.Accounts.Member;
 
@@ -15,6 +16,33 @@ import java.util.Scanner;
 /* Controls methods with accounts and accessing files */
 public class AccountController {
 
+    public static Member populateMember(int id) throws FileNotFoundException {
+        Scanner fileScanner = new Scanner(new File("src/com/chocan/TextFiles/memberinfo.csv"));
+        String [] words = null;
+        String [] retWords = null;
+        while(fileScanner.hasNext()){
+            String line = fileScanner.nextLine();
+            words = line.split(",");
+            if(words[0].equals(String.valueOf(id))){
+               retWords = words;
+               break;
+            }
+
+        }
+        fileScanner.close();
+
+        if(retWords != null){
+
+            return new Member(words[1], Integer.parseInt(words[0]),
+                    words[2], words[3], words[4],
+                    Integer.parseInt(words[5]), Integer.parseInt(words[6]));
+        }
+        else {
+            return null;
+        }
+
+    }
+
 
     public static Provider populateProvider(int id) throws FileNotFoundException {
         Scanner fileScanner = new Scanner(new File("src/com/chocan/TextFiles/providerinfo.csv"));
@@ -26,6 +54,7 @@ public class AccountController {
                 break;
             }
         }
+        fileScanner.close();
 
         if (words != null) {
             return new Provider(words[1], Integer.parseInt(words[0]), words[2],

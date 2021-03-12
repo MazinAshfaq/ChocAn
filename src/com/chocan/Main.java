@@ -4,8 +4,11 @@ import com.chocan.Accounts.Account;
 import com.chocan.Controllers.AccountController;
 import com.chocan.Accounts.Provider;
 import com.chocan.Auth.Logger;
+import com.chocan.Controllers.MemberController;
 
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 import java.io.IOException;
 import java.util.Scanner;
@@ -16,6 +19,18 @@ import com.chocan.Reports.Reports;
 import java.io.FileNotFoundException;
 
 public class Main {
+
+    public static void viewProviderDirectory() throws FileNotFoundException {
+        Scanner scanner = new Scanner(new FileReader("src/com/chocan/TextFiles/providerdirectory.csv"));
+        System.out.println("Service Code\tService Title\tService Fee");
+        String [] line;
+        scanner.nextLine();
+        while(scanner.hasNext()){
+            line = scanner.nextLine().split(",");
+            System.out.println(line[0] + "\t\t" + line[1] + "\t\t" + line[2]);
+        }
+        scanner.close();
+    }
 
     public static int menu(){
         int choice = 0;
@@ -60,7 +75,7 @@ public class Main {
             switch(choice){
                 case 1:
                     // Add, Delete, Update Member Data
-                    System.out.println("Selection: " + choice);
+                    MemberController.memberController();
                     break;
                 case 2:
                     System.out.println("Selection: " + choice);
@@ -88,6 +103,7 @@ public class Main {
                 case 5:
                     // Add, Delete, Update Member Data
                     System.out.println("Selection: " + choice);
+                    viewProviderDirectory();
                     break;
                 case 6:
                     System.out.println("Selection: " + choice);

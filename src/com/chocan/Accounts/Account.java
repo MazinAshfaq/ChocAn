@@ -21,6 +21,10 @@ public class Account {
         this.zip = zip;
     }
 
+    public Account() {
+
+    }
+
     public String getName() {
         return name;
     }
