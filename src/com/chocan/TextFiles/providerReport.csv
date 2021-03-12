@@ -1,0 +1,8 @@
+ProviderID, Provider Name, Provider Street address, City, State, Zip, Date of Service, Date and Time Data were received, Member Name, MemberID, Service Code, Member Fees, Total Consultations, Total Fees for the week
+120000000,Cesar,12345 SW Cream St.,Beaverton,OR,97006,1/5/21,1/5/21 13:15,Bob,200000000,222222,10,2,40
+120000000,Cesar,12345 SW Cream St.,Beaverton,OR,97006,1/6/21,1/5/21 15:45,Lynn,210000000,333333,30,2,40
+150000000,Tommy,12345 NW Tom St,Portland,OR,97229,1/7/21,1/7/21,Bob,200000000,111111,25,5,120
+150000000,Tommy,12345 NW Tom St,Portland,OR,97229,1/7/21,1/7/21,Lynn,210000000,222222,10,5,120
+150000000,Tommy,12345 NW Tom St,Portland,OR,97229,1/5/21,1/5/21,Kurt,220000000,333333,30,5,120
+150000000,Tommy,12345 NW Tom St,Portland,OR,97229,1/5/21,1/5/21,Lisa,230000000,444444,40,5,120
+150000000,Tommy,12345 NW Tom St,Portland,OR,97229,1/7/21,1/7/21,Lisa,230000000,555555,15,5,120
