@@ -1,5 +1,6 @@
 package com.chocan;
 
+import com.chocan.Accounts.Account;
 import com.chocan.Controllers.AccountController;
 import com.chocan.Accounts.Provider;
 import com.chocan.Auth.Logger;
@@ -7,10 +8,16 @@ import com.chocan.Controllers.MemberController;
 import com.chocan.Reports.Reports;
 
 import java.io.FileNotFoundException;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
+import java.io.IOException;
+import java.util.Scanner;
+import com.chocan.Controllers.AccountController;
+import com.chocan.Accounts.Provider;
+import com.chocan.Auth.Logger;
+import com.chocan.Reports.Reports;
+import java.io.FileNotFoundException;
 
 public class Main {
 
@@ -25,9 +32,6 @@ public class Main {
         }
         scanner.close();
     }
-
-
-
 
     public static int menu(){
         int choice = 0;
@@ -52,7 +56,6 @@ public class Main {
         return choice;
     }
 
-
     public static void main(String[] args) throws IOException {
 	    /* Login */
         int providerNum = Logger.login();
@@ -75,6 +78,8 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Selection: " + choice);
+                    System.out.println("Please Enter Member ID!");
+                    AccountController.validation();
                     break;
                 case 3:
                     System.out.println("Selection: " + choice);
@@ -97,6 +102,9 @@ public class Main {
                     }
                     break;
                 case 5:
+
+                    //View P Directory
+
                     System.out.println("Selection: " + choice);
                     viewProviderDirectory();
                     break;
