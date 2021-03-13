@@ -78,21 +78,18 @@ public class Main {
                     MemberController.memberController();
                     break;
                 case 2:
-                    System.out.println("Selection: " + choice);
                     System.out.println("Please Enter Member ID!");
                     AccountController.validation(provider);
                     break;
 
                 case 3:
                     // Run a report
-                    System.out.println("Selection: " + choice);
                     //get id
                     int id = provider.getNumber();
                     Reports.menu(id);
                     break;
                 case 4:
                     //View a report
-                    System.out.println("Selection: " + choice);
                     int pID = provider.getNumber();
                     int c = Reports.view(pID);
                     if(c == 1) {
@@ -106,11 +103,11 @@ public class Main {
                     break;
                 case 5:
                     //View P Directory
-                    System.out.println("Selection: " + choice);
                     viewProviderDirectory();
                     break;
                 case 6:
-                    System.out.println("Selection: " + choice);
+                    //Exit
+                    System.out.println("THANK YOU HAVE A NICE DAY!!!!!!!!!!!!!!");
                     break;
 
             }
