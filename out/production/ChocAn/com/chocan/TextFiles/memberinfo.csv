@@ -1,0 +1,5 @@
+﻿number,name,address,city,state,zip,valid
+200000000,Bobby,54321 NW Member1 St.,Portland,OR,97229,0
+210000000,Lynn,54321 NW Member2 St.,Portland,OR,97229,0
+220000000,Kurt,54321 NW Member3 St.,Beaverton,OR,97006,100
+230000000,Lisa,54321 NW Member4 St.,Beaverton,OR,97006,200

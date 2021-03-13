@@ -3,31 +3,10 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="/src/com/chocan/TextFiles/memberinfo.csv">
+        <entry key="\src\com\chocan\Main.java">
           <value>
             <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/src/com/chocan/TextFiles/providerdirectory.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/src/com/chocan/TextFiles/providerinfo.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="/src/com/chocan/TextFiles/servicelist.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
+              <option name="separator" value=";" />
             </Attribute>
           </value>
         </entry>

@@ -5,6 +5,7 @@ import com.chocan.ProductService.Product;
 import java.util.List;
 
 public class Member extends Account{
+
     private int valid;
     public Member(String name, int number, String address, String city, String state, int zip, int valid) {
         super(name, number, address, city, state, zip);
@@ -25,8 +26,9 @@ public class Member extends Account{
 
     @Override
     public String toString() {
-        return "Member{" +
-                "valid=" + valid +
-                '}';
-    }
+            return "Member{" +
+                    "valid=" + valid +
+                    '}';
+        }
 }
+

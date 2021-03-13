@@ -1,5 +1,6 @@
 package com.chocan;
 
+import com.chocan.Accounts.Account;
 import com.chocan.Controllers.AccountController;
 import com.chocan.Accounts.Provider;
 import com.chocan.Auth.Logger;
@@ -10,6 +11,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
+import java.io.IOException;
+import java.util.Scanner;
+import com.chocan.Controllers.AccountController;
+import com.chocan.Accounts.Provider;
+import com.chocan.Auth.Logger;
+import com.chocan.Reports.Reports;
+import java.io.FileNotFoundException;
 
 public class Main {
 
@@ -62,7 +70,6 @@ public class Main {
         }
 
         /* Call Menu */
-
         int choice = 999;
         do {
             choice = menu();
@@ -72,15 +79,17 @@ public class Main {
                     MemberController.memberController();
                     break;
                 case 2:
-                    System.out.println("Selection: " + choice);
+                    System.out.println("Please Enter Member ID!");
+                    AccountController.validation(provider);
                     break;
                 case 3:
-                    System.out.println("Selection: " + choice);
+                    // Run a report
+                    //get id
                     int id = provider.getNumber();
                     Reports.menu(id);
                     break;
                 case 4:
-                    System.out.println("Selection: " + choice);
+                    //View a report
                     int pID = provider.getNumber();
                     int c = Reports.view(pID);
                     if(c == 1) {
@@ -93,17 +102,17 @@ public class Main {
                     }
                     break;
                 case 5:
-                    System.out.println("Selection: " + choice);
+                    //View P Directory
                     viewProviderDirectory();
                     break;
                 case 6:
-                    System.out.println("Logging " + provider.getName() + " out. Goodbye");
+                    //Exit
+                    System.out.println("THANK YOU HAVE A NICE DAY!!!!!!!!!!!!!!");
                     break;
 
             }
 
         }while(choice != 6);
-
 
     }
 }
