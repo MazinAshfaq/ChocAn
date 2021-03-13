@@ -5,6 +5,7 @@ import com.chocan.Controllers.AccountController;
 import com.chocan.Accounts.Provider;
 import com.chocan.Auth.Logger;
 import com.chocan.Controllers.MemberController;
+import com.chocan.Reports.Reports;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -81,7 +82,6 @@ public class Main {
                     System.out.println("Please Enter Member ID!");
                     AccountController.validation(provider);
                     break;
-
                 case 3:
                     // Run a report
                     //get id
