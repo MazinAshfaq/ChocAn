@@ -56,9 +56,8 @@ public class Main {
         return choice;
     }
 
-
     public static void main(String[] args) throws IOException {
-	    /* Login */
+        /* Login */
         int providerNum = Logger.login();
         /* Populate Current Logged In Provider */
         Provider provider = AccountController.populateProvider(providerNum);
@@ -69,7 +68,6 @@ public class Main {
             System.out.println("Welcome Back " + provider.getName());
         }
 
-        /* Call Menu */
         int choice = 999;
         do {
             choice = menu();
@@ -102,7 +100,6 @@ public class Main {
                     }
                     break;
                 case 5:
-                    //View P Directory
                     viewProviderDirectory();
                     break;
                 case 6:
@@ -113,6 +110,5 @@ public class Main {
             }
 
         }while(choice != 6);
-
     }
 }

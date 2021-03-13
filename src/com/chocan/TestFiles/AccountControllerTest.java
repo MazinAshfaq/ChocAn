@@ -55,7 +55,6 @@ class AccountControllerTest {
 
     }
 
-
     //derived from original. Changes file to be read as a fake file
     private static Provider populateProviderTest(int id) throws FileNotFoundException {
         Scanner fileScanner = new Scanner(new File("src/com/chocan/TextFiles/providerinfoFake.csv"));
@@ -176,4 +175,5 @@ class AccountControllerTest {
         s = "1";
         return s;
     }
+
 }

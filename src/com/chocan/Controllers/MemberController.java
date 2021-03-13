@@ -314,7 +314,7 @@ public class MemberController {
 
 
     public static void main(String [] args) throws IOException {
-        MemberController.memberController();
+       MemberController.memberController();
 
 
 
