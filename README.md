@@ -35,5 +35,4 @@ are controller types to communicate between the view layer and controller layer
 in the ChocAn data processing software's program archetecture.
 
 ## Donations
-Feel free to send us free bitcoin:
-Wallet ID: 33VgqAQqmNu4eV5GXbCE4jcNGnWaWpKw2X
+Feel free to send us free bitcoin: 33VgqAQqmNu4eV5GXbCE4jcNGnWaWpKw2X
