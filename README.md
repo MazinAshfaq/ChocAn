@@ -3,7 +3,7 @@
 * Eric Anderson
 * Mazin Ashaq
 * Arafat Iqbao
-* Thomas Nguyen
+* Tommy Nguyen
 * Andy Cruong
 * Cesar Ochoa
 
