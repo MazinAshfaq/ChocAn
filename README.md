@@ -2,7 +2,7 @@
 ## Attributers
 * Eric Anderson
 * Mazin Ashaq
-* Arafat Iqbao
+* Arafat Iqbal
 * Tommy Nguyen
 * Andy Truong
 * Cesar Ochoa
