@@ -7,7 +7,3 @@ People Who Worked on this project:
 Arafat Iqbal 
 
 Tommy Nguyen
-
-Yung og
-
-Ted ":D" Cooper
