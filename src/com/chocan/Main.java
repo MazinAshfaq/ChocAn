@@ -1,13 +1,36 @@
 package com.chocan;
 
+import com.chocan.Accounts.Account;
 import com.chocan.Controllers.AccountController;
 import com.chocan.Accounts.Provider;
 import com.chocan.Auth.Logger;
+import com.chocan.Controllers.MemberController;
 
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
+import java.io.IOException;
+import java.util.Scanner;
+import com.chocan.Controllers.AccountController;
+import com.chocan.Accounts.Provider;
+import com.chocan.Auth.Logger;
+import com.chocan.Reports.Reports;
+import java.io.FileNotFoundException;
 
 public class Main {
+
+    public static void viewProviderDirectory() throws FileNotFoundException {
+        Scanner scanner = new Scanner(new FileReader("src/com/chocan/TextFiles/providerdirectory.csv"));
+        System.out.println("Service Code\tService Title\tService Fee");
+        String [] line;
+        scanner.nextLine();
+        while(scanner.hasNext()){
+            line = scanner.nextLine().split(",");
+            System.out.println(line[0] + "\t\t" + line[1] + "\t\t" + line[2]);
+        }
+        scanner.close();
+    }
 
     public static int menu(){
         int choice = 0;
@@ -33,7 +56,7 @@ public class Main {
     }
 
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
 	    /* Login */
         int providerNum = Logger.login();
         /* Populate Current Logged In Provider */
@@ -46,37 +69,50 @@ public class Main {
         }
 
         /* Call Menu */
-
         int choice = 999;
         do {
             choice = menu();
             switch(choice){
                 case 1:
                     // Add, Delete, Update Member Data
-                    System.out.println("Selection: " + choice);
+                    MemberController.memberController();
                     break;
                 case 2:
-                    System.out.println("Selection: " + choice);
+                    System.out.println("Please Enter Member ID!");
+                    AccountController.validation(provider);
                     break;
+
                 case 3:
-                    // Add, Delete, Update Member Data
-                    System.out.println("Selection: " + choice);
+                    // Run a report
+                    //get id
+                    int id = provider.getNumber();
+                    Reports.menu(id);
                     break;
                 case 4:
-                    System.out.println("Selection: " + choice);
+                    //View a report
+                    int pID = provider.getNumber();
+                    int c = Reports.view(pID);
+                    if(c == 1) {
+                        //provider report
+                        Reports.viewProvider(pID);
+                    }
+                    else {
+                        String provName = provider.getName();
+                        Reports.viewMember(provName);
+                    }
                     break;
                 case 5:
-                    // Add, Delete, Update Member Data
-                    System.out.println("Selection: " + choice);
+                    //View P Directory
+                    viewProviderDirectory();
                     break;
                 case 6:
-                    System.out.println("Selection: " + choice);
+                    //Exit
+                    System.out.println("THANK YOU HAVE A NICE DAY!!!!!!!!!!!!!!");
                     break;
 
             }
 
         }while(choice != 6);
-
 
     }
 }
