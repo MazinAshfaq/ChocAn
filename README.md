@@ -4,7 +4,7 @@
 * Mazin Ashaq
 * Arafat Iqbao
 * Tommy Nguyen
-* Andy Cruong
+* Andy Truong
 * Cesar Ochoa
 
 ## Purpose
